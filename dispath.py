@@ -35,7 +35,7 @@ class Dispath:
         
     def _salvar_evento(self, mensagem):
         """Método auxiliar para centralizar a gravação no MySQL"""
-        sql = "INSERT INTO eventos (evento, data) VALUES (%s, %s)"
+        sql = "INSERT INTO epis (nome, data) VALUES (%s, %s)"
         data_atual = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         try:
             Mysql.execute(sql, (mensagem, data_atual))
