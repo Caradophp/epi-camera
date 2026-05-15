@@ -52,7 +52,6 @@ class Dispath:
         
         if len(capacetes) == 0:
             if not self.aux:
-                self._salvar_evento("Sem capacete detectado!")
                 self.aux = True
             
             # Detecção de face para marcar onde deveria estar o capacete
@@ -61,6 +60,7 @@ class Dispath:
             for (x, y, w, h) in faces:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 0, 255), 2)
                 cv2.putText(frame, 'Sem capacete', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (0, 0, 255), 2)
+                self._salvar_evento("Sem capacete detectado!")
                 
     def verify_gloves(self, frame):
         try:
